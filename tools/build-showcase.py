@@ -15,13 +15,13 @@ SRC, OUT = sys.argv[1], sys.argv[2]
 MEDIA = {
     "soccer-factory-start-soccer.png": (639, "https://nashvilleaiclub.com/wp-content/uploads/sites/4/2026/10/soccer-factory-start-soccer.png"),
     "soccer-factory-examples.png": (640, "https://nashvilleaiclub.com/wp-content/uploads/sites/4/2026/10/soccer-factory-examples.png"),
-    "soccer-factory-formations-soccer.png": (652, "https://nashvilleaiclub.com/wp-content/uploads/sites/4/2026/10/soccer-factory-formations-soccer-v3.png"),
-    "soccer-factory-layouts-factory.png": (653, "https://nashvilleaiclub.com/wp-content/uploads/sites/4/2026/10/soccer-factory-layouts-factory-v3.png"),
+    "soccer-factory-formations-soccer.png": (656, "https://nashvilleaiclub.com/wp-content/uploads/sites/4/2026/10/soccer-factory-formations-soccer-v4.png"),
+    "soccer-factory-layouts-factory.png": (657, "https://nashvilleaiclub.com/wp-content/uploads/sites/4/2026/10/soccer-factory-layouts-factory-v4.png"),
     "soccer-factory-whatif-redcard.png": (654, "https://nashvilleaiclub.com/wp-content/uploads/sites/4/2026/10/soccer-factory-whatif-redcard-v3.png"),
     "soccer-factory-whatif-breakdown.png": (655, "https://nashvilleaiclub.com/wp-content/uploads/sites/4/2026/10/soccer-factory-whatif-breakdown-v3.png"),
     "soccer-factory-lab-soccer.png": (645, "https://nashvilleaiclub.com/wp-content/uploads/sites/4/2026/10/soccer-factory-lab-soccer.png"),
     "soccer-factory-start-factory.png": (646, "https://nashvilleaiclub.com/wp-content/uploads/sites/4/2026/10/soccer-factory-start-factory.png"),
-    "soccer-factory-coach-gate.png": (647, "https://nashvilleaiclub.com/wp-content/uploads/sites/4/2026/10/soccer-factory-coach-gate.png"),
+    "soccer-factory-coach-gate.png": (658, "https://nashvilleaiclub.com/wp-content/uploads/sites/4/2026/10/soccer-factory-coach-gate-v4.png"),
 }
 
 DEMO = "https://nashvilleaiclub.com/demo/abanerji/soccer-factory/#/examples"

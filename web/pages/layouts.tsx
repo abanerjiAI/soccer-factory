@@ -279,7 +279,7 @@ export default function LayoutsPage() {
               </li>
             </>
           )}
-          <li>Green = best of these on that measure. If the wins are split, say so: “this shape covers more, that one keeps the players less overloaded”.</li>
+          <li>Green = best of these on that measure. If the wins are split, the answer is a comparison: “this shape covers more, that one keeps the players less overloaded”.</li>
           {sweep && <li className="font-medium text-amber-800">One option ({sweep}) wins every measure with these settings. Do not stop there: change the seed or the arrangement and see whether it still wins. A result that depends on an assumption is a finding about the assumption.</li>}
         </ul>
         <div className="mt-3">
@@ -301,7 +301,7 @@ export default function LayoutsPage() {
         </div>
       </Card>
 
-      <Callout kind="warn" title="Where soccer and a factory are NOT the same (say this before anyone asks)">
+      <Callout kind="warn" title="Where soccer and a factory are NOT the same">
         <ul className="list-disc space-y-0.5 pl-5 text-xs">
           <li>A factory has an order of steps (S2 cannot start before S1 finishes) and queues of work waiting. This model has neither: demand just appears around the active job.</li>
           <li>Opponents are clever and react. Rush orders and breakdowns are not.</li>

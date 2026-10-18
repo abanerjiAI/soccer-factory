@@ -25,7 +25,7 @@ easy to hard. This file is the record of that merge and the learning design behi
    hand-checkable arithmetic → the calculus version (folded away) → what it does NOT tell you →
    3 self-check questions → 3 copyable tutor prompts (with "do not invent data" rules built in).
    The first five map to Your Five; the rest are the proof machinery. Tick "I can explain this"
-   only after saying it out loud.
+   only when the student can explain it without notes.
 6. **My Notebook = your own words.** The 90-second script is composed only from what the student
    types; empty fields stay as `[blanks]` and are counted. Nothing is written for them.
 7. **Help = six plain-language documents** (10-minute first session, soccer↔factory dictionary,

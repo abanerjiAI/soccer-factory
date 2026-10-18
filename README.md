@@ -94,7 +94,7 @@ page work without the gate.
   the Coach into a fixed offline template that says so.
 - The key never reaches the browser.
 
-## What is real and what is not (say this out loud)
+## What is real and what is not
 
 - Every result is **SIMULATED** under **ASSUMED** parameters. Nothing is claimed as measured.
 - **Real Match Data** turns a Metrica-format tracking CSV into ESTIMATED speed/acceleration limits

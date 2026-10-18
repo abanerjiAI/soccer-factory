@@ -47,7 +47,6 @@ Offside has no clean factory counterpart, so the lab does not map it. Do not for
 
 ## Where the analogy breaks
 
-Say this out loud when you present. It is part of the work, not a weakness.
 
 - **Adaptive opponents.** A defending team reacts to you. A factory floor has no one trying to beat your layout. The simulation's demand does not fight back.
 - **Queues.** Factory jobs wait in lines with real queueing behaviour. The soccer model does not treat waiting the same way, so queueing results do not transfer unchanged.
@@ -57,6 +56,6 @@ Say this out loud when you present. It is part of the work, not a weakness.
 - **Agents differ.** Players have fatigue, skill and judgement. A machine's failure and repair patterns are different again.
 - **Parameters are assumed.** The values in the lab are chosen, not measured from a particular plant. A real project would start by measuring (see the **Factory Field Guide**).
 
-## A sentence you can defend
+## The short version
 
 "The same coverage, load and disturbance mathematics applies to both settings, so soccer is a good place to learn it. A real factory also has queues, ordering and safety rules, so I would measure before trusting any number."

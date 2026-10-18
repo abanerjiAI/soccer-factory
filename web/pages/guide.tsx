@@ -117,7 +117,7 @@ function IdeaView({ idea, done, onDone }: { idea: Idea; done: boolean; onDone: (
 
       <Card title="9 · Prompts for an AI tutor (copy, paste into any chat)">
         <p className="mb-2 text-xs text-slate-600">
-          Each prompt tells the AI not to invent data. Use it to <b>practise explaining</b>, not to produce text you submit: you should be able to re-derive and say everything above yourself.
+          Each prompt tells the AI not to invent data. Use it to <b>practise explaining</b>, not to produce text you submit: you should be able to re-derive and explain everything above yourself.
         </p>
         <div className="space-y-2">
           {idea.prompts.map((p) => (
@@ -142,7 +142,7 @@ function IdeaView({ idea, done, onDone }: { idea: Idea; done: boolean; onDone: (
         <Btn kind={done ? "ghost" : "primary"} onClick={onDone}>
           {done ? "✓ I can explain this (click to undo)" : "I can explain this without looking"}
         </Btn>
-        <span className="text-xs text-slate-500">Be honest: tick it only after you have said it out loud.</span>
+        <span className="text-xs text-slate-500">Be honest: tick it only when you can explain it without notes.</span>
       </div>
     </div>
   );
@@ -181,7 +181,7 @@ export default function GuidePage() {
         title="Study Guide: 14 ideas, one soccer scene each"
         sub={
           <>
-            Read an idea, do the click it suggests, derive the formula, then say it out loud. The first five are <b>Your Five</b> (the ones to own). The other nine are the proof: how you test an idea, stress it, optimise it and measure it. {done.length} of {IDEAS.length} ticked.
+            Read an idea, do the click it suggests, derive the formula, then explain it in your own words. The first five are <b>Your Five</b> (the ones to own). The other nine are the proof: how you test an idea, stress it, optimise it and measure it. {done.length} of {IDEAS.length} ticked.
           </>
         }
       />

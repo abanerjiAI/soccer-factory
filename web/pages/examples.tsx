@@ -46,7 +46,7 @@ const EXAMPLES: Example[] = [
       "Flip the toggle to 🏭 Factory. Same page, same five columns — but now the rows are three ways to lay out six stations, and product has to walk between them.",
       "Read Product flow distance: the linear line moves a unit of product 45.0 m, the U-shaped cell 73.5 m, the scattered layout 194.9 m. The straight-line distance is printed next to it, so you can see the racks forcing a detour.",
       "Change Operators start as to Depot-based. The wins split: linear still moves product least and covers most, but the scattered layout needs the least capacity (peak utilisation 0.91 against 1.42) and has the most dead area (438 m²). There is no longer one winner.",
-      "Say the sentence out loud: “the linear line moves the product less, the scattered layout keeps the operators less overloaded.” That sentence is the actual engineering answer.",
+      "Put that in one sentence: “the linear line moves the product less, the scattered layout keeps the operators less overloaded.” That sentence is the actual engineering answer.",
     ],
     seesHeaders: ["Formation", "Reach in 3 s", "Coverage", "Throughput", "Peak utilisation"],
     sees: [
@@ -121,7 +121,7 @@ const EXAMPLES: Example[] = [
       "Flip the toggle to 🏭 Factory and read the same panel. At factory defaults there is no bottleneck: peak utilisation 0.795, and only 1.2% of demand is short — all of it access-limited.",
       "Drag Capacity per operator down to about 4. Peak utilisation becomes 1.939, 44.2% of demand is lost to capacity, and 20% more capacity is worth 10.9 points.",
       "Notice the label changed (capacity per player → per operator) while the arithmetic did not. That is the whole point of the toggle.",
-      "Say which constraint you are looking at before you say what to do: more capacity, or better positions? The app refuses to answer that for you, on purpose.",
+      "Name the constraint before deciding what to do: more capacity, or better positions? The app refuses to answer that for you, on purpose.",
     ],
     seesHeaders: ["Setting", "Peak utilisation", "Lost to capacity", "20% more capacity buys"],
     sees: [
@@ -305,12 +305,12 @@ export default function ExamplesPage() {
         </p>
       </Card>
 
-      <Card title="Say it in one breath (the sentence to remember)">
+      <Card title="The sentence to remember">
         <p className="text-sm text-slate-800">
           “Soccer and a factory are both space with moving agents, jobs arriving and limits on how fast things get done — so the same coverage, load and disturbance maths answers both. A real factory also has queues, an order of operations and safety rules, so I would measure before I trusted any of these numbers.”
         </p>
         <p className="mt-2 text-xs text-slate-500">
-          Tick it off in <Link href="/notebook" className="text-indigo-700 underline">My Notebook</Link> once you can say it without reading.
+          Tick it off in <Link href="/notebook" className="text-indigo-700 underline">My Notebook</Link> once you can explain it without reading.
         </p>
         <div className="mt-3 flex flex-wrap gap-2">
           <Link href="/" className="rounded border border-slate-300 px-3 py-1 text-xs text-slate-700 hover:bg-slate-50">

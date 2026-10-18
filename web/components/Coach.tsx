@@ -153,7 +153,7 @@ export function CoachPanel({ open, onClose }: { open: boolean; onClose: () => vo
             [
               ["highschool", "Plain"],
               ["technical", "With the math"],
-              ["interview", "Say it aloud"],
+              ["interview", "Spoken"],
             ] as const
           ).map(([k, l]) => (
             <button key={k} onClick={() => setAudience(k)} className={`rounded-full border px-2 py-0.5 ${audience === k ? "border-indigo-600 bg-indigo-600 text-white" : "border-slate-300 bg-white text-slate-700"}`}>

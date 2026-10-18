@@ -118,7 +118,7 @@ export default function NotebookPage() {
               </label>
             </div>
             <label className="mt-2 flex items-center gap-2 text-xs text-slate-700">
-              <input type="checkbox" checked={e.done} onChange={(ev) => set(String(f.n), { done: ev.target.checked })} /> I can re-derive this and say it out loud without looking.
+              <input type="checkbox" checked={e.done} onChange={(ev) => set(String(f.n), { done: ev.target.checked })} /> I can re-derive this and explain it without looking.
             </label>
           </Card>
         );

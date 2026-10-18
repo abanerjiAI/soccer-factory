@@ -35,7 +35,7 @@ function mk(idea: string, appDef: string, factoryHint: string): Prompt[] {
   return [
     {
       label: "Explain it with my own soccer example",
-      text: `I am a high-school soccer player learning Industrial Engineering. The idea is "${idea}". My app defines it like this: ${appDef} First ask me for one real soccer situation I know well (my position, a moment from a game). Then explain the idea using only that situation, in plain language I could say out loud, and show any arithmetic step by step with numbers I supply. ${RULES}`,
+      text: `I am a high-school soccer player learning Industrial Engineering. The idea is "${idea}". My app defines it like this: ${appDef} First ask me for one real soccer situation I know well (my position, a moment from a game). Then explain the idea using only that situation, in plain language I could explain to a teammate, and show any arithmetic step by step with numbers I supply. ${RULES}`,
     },
     {
       label: "Quiz me / find holes in my explanation",
