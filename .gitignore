@@ -7,7 +7,6 @@ api/config.php
 *.sqlite
 *.sqlite-wal
 *.sqlite-shm
-shots/
-shots-lead/
 *.log
 .DS_Store
+shots*/
