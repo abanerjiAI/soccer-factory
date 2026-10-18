@@ -1,0 +1,203 @@
+<!--
+  Source for the nashvilleaiclub.com showcase post (naic_showcase).
+  Image placeholders: src="IMG:<file>.png" are replaced with the uploaded media URLs when the post is built.
+  Every number below was read from the app with seed 42 and the settings in the steps.
+-->
+
+<p><strong>Soccer Factory</strong> is a free web app that uses the game you already play to teach the subject you have probably never been taught: <strong>Industrial Engineering</strong> — the study of how to arrange people, machines and space so that work gets done without anyone drowning.</p>
+
+<p>Here is the idea in one sentence: a football team and a factory floor are both <em>space with moving agents, jobs arriving, and limits on how fast things get done</em>. If you can work out how much of the pitch your midfield can shut down in three seconds, you already have the maths for how much of a warehouse six operators can serve in thirty. One engine in the app runs both, and a single <strong>⚽ / 🏭 toggle</strong> at the top of every page switches between them.</p>
+
+<figure><img src="IMG:sf-examples.png" alt="The Four Worked Examples page inside Soccer Factory" /><figcaption>The guided page. Four examples, ordered the way a player learns the ideas, each one run on the pitch and then on a factory floor.</figcaption></figure>
+
+<h2>Try it in sixty seconds</h2>
+
+<ol>
+<li>Open the app (button at the bottom of this page). You land on <strong>Start Here</strong>, with a pitch and eleven players.</li>
+<li>Press <strong>Bunch them up</strong>. The big number — how much of the pitch your team can reach in three seconds — drops from 70% to 17%. Press <strong>4-4-2</strong> to spread out again.</li>
+<li>Now press <strong>🏭 Factory</strong> in the top bar. Same engine, same question, different world: six operators, racks you cannot walk through, and stations that need serving. The number becomes 42%, because a person walks at 1.4 m/s and a player runs at 6.</li>
+</ol>
+
+<p>That is the whole project in three clicks: <em>the shape matters more than the effort, and the same shape question appears in both places.</em></p>
+
+<h2>Four worked examples</h2>
+
+<p>These are in the order a player learns them — the simplest soccer idea first, the most advanced last. Each one tells you the problem, how to set it up, what to do with the toggle, and then the part most demos skip: <strong>what the model cannot tell you</strong>.</p>
+
+<h3>D · A team sheet is a layout drawing</h3>
+
+<p><strong>The problem.</strong> Your coach switches from 4-4-2 to 4-3-3. Which shape actually covers more of the pitch? And if you were the person laying out a factory floor, would the same comparison help you?</p>
+
+<p><strong>How to set it up.</strong></p>
+<ol>
+<li>Open <strong>Layouts &amp; Formations</strong> (step 5 in the left menu). Check the toggle says <strong>⚽ Soccer</strong>.</li>
+<li>Five cards appear, one per formation, all on the same 105 × 68 m pitch. Under them is a table with five measures.</li>
+<li>Read the first column, <strong>Reach in 3 s, weighted</strong>: how much of the pitch a player can get to in three seconds at 6 m/s, counting the areas near the ball and in front of your own goal as more important.</li>
+<li>Follow the green cells. They are not all in the same row — that is the point.</li>
+</ol>
+
+<table>
+<thead><tr><th>Formation</th><th>Reach in 3 s</th><th>Coverage</th><th>Throughput</th><th>Peak utilisation</th></tr></thead>
+<tbody>
+<tr><td>4-4-2</td><td>0.759</td><td>0.904</td><td>0.874</td><td>1.63</td></tr>
+<tr><td><strong>4-3-3</strong></td><td><strong>0.823</strong></td><td><strong>0.922</strong></td><td><strong>0.890</strong></td><td>1.59</td></tr>
+<tr><td>3-5-2</td><td>0.749</td><td>0.898</td><td>0.868</td><td>1.60</td></tr>
+<tr><td>5-3-2</td><td>0.755</td><td>0.901</td><td>0.866</td><td>1.71</td></tr>
+<tr><td>4-2-3-1</td><td>0.775</td><td>0.910</td><td>0.879</td><td><strong>1.58</strong></td></tr>
+</tbody>
+</table>
+
+<p><strong>Now use the toggle.</strong> Press <strong>🏭 Factory</strong>. Same page, same five columns, but the rows are now three ways to lay out six stations, and product has to walk between them:</p>
+
+<ul>
+<li><strong>Linear flow line</strong> — 45.0 m of product travel, coverage 0.984, peak utilisation 0.81.</li>
+<li><strong>U-shaped cell</strong> — 73.5 m, coverage 0.978, peak utilisation 1.07.</li>
+<li><strong>Functional (scattered)</strong> — 194.9 m, coverage 0.958, peak utilisation 1.14.</li>
+</ul>
+
+<p>With operators evenly spread, the linear line wins everything — and the app warns you not to stop there. Change <strong>Operators start as</strong> to <em>Depot-based</em> and the wins split: linear still moves product least and covers most, but the scattered layout needs the least capacity (peak utilisation 0.91 against 1.42) and carries the most dead area (438 m²). There is no longer one winner, and saying “this one moves product less, that one keeps the operators less busy” <em>is</em> the engineering answer.</p>
+
+<figure><img src="IMG:sf-formations-soccer.png" alt="Five formations compared on the same pitch" /><figcaption>Five shapes, one engine, five measures. The green cells move when you change which column you care about.</figcaption></figure>
+
+<figure><img src="IMG:sf-layouts-factory.png" alt="Three factory layouts compared with the same five measures" /><figcaption>Flip the toggle and the rows become three floor layouts — the same five columns, the same idea of competing measures.</figcaption></figure>
+
+<p><strong>What it proves.</strong> A formation and a floor layout are the same decision wearing different kit: where you put your agents decides what gets covered and who gets overloaded.</p>
+
+<p><strong>What it cannot tell you.</strong> A pitch has ten opponents trying to beat your shape; a factory has no opponent and a rush order cannot press you. The factory has an order of work (cut before weld before paint) and queues of jobs; this model has neither. Real floors have safety rules and forklift aisles. And formations are coarse — eleven real players do not stand on dots.</p>
+
+<h3>C · A red card and a machine breakdown are the same question</h3>
+
+<p><strong>The problem.</strong> You are 2–0 up and two players get sent off. How much of your defensive coverage does that actually cost, and how long until the team settles again? Industrial engineering asks exactly the same thing about a machine that breaks mid-shift.</p>
+
+<p><strong>How to set it up.</strong></p>
+<ol>
+<li>Open <strong>What-If</strong> (step 4). Toggle to <strong>⚽ Soccer</strong>, formation 4-4-2.</li>
+<li>Tick the box on the row called <strong>Player(s) unavailable</strong>.</li>
+<li>Click players <strong>8</strong> and <strong>9</strong> in that row: two sent off, eight still playing.</li>
+<li>Set <strong>Repeated trials</strong> to 10, so the whole simulation repeats along ten different random ball paths — that is where the ranges come from.</li>
+<li>Press <strong>Run scenarios</strong> and read the five cards left to right: Baseline → Disturbance → Response (lowest) → Recovery → Final.</li>
+</ol>
+
+<p><strong>Now use the toggle.</strong> Press <strong>🏭 Factory</strong>. The same row is now called <strong>Operator(s) unavailable</strong>, because the app's dictionary says a sent-off player is a lost resource — exactly what an absent operator or a broken machine is. Tick it, click operator 2, keep ten trials, run it again.</p>
+
+<table>
+<thead><tr><th>Scenario</th><th>Peak coverage loss</th><th>Retained (min)</th><th>Recovery</th><th>Recovered</th></tr></thead>
+<tbody>
+<tr><td>Soccer: 2 of 10 sent off</td><td>0.060 <span>(0.037–0.084)</span></td><td>0.930</td><td>0.6 s</td><td>100%</td></tr>
+<tr><td>Factory: 1 of 6 absent</td><td><strong>0.133</strong> <span>(0.119–0.147)</span></td><td>0.865</td><td>0.0 s</td><td>100%</td></tr>
+</tbody>
+</table>
+
+<p>Two players out of ten costs you about six points of coverage. One operator out of six costs about thirteen. Same maths, different slack — the floor has less redundancy than the pitch, and the model shows it without being told.</p>
+
+<figure><img src="IMG:sf-whatif-redcard.png" alt="Red card results: coverage dips during the disturbance window and recovers" /><figcaption>Two sent off. The coverage curve dips inside the shaded disturbance window, then comes back.</figcaption></figure>
+
+<figure><img src="IMG:sf-whatif-breakdown.png" alt="Factory breakdown results with the same five-stage frame" /><figcaption>One operator absent on the same five-stage frame. Bigger dip, quicker recovery — that difference is the finding.</figcaption></figure>
+
+<p><strong>What it proves.</strong> A sending-off and a breakdown are one idea in two costumes: remove capacity, watch the system dip, measure the size and the length of the dip.</p>
+
+<p><strong>What it cannot tell you.</strong> The opponent in this model wobbles but never attacks the gap you just left. A real machine has a repair-time distribution and a queue of work behind it, so the model cannot tell you how many orders end up late. Recovery looks almost instant because the remaining agents re-plan perfectly — real players tire, argue and take minutes. And a red card in minute 30 is not a red card in minute 85; the model does not know the score or the clock.</p>
+
+<h3>B · One player running everywhere is a bottleneck, not a hero</h3>
+
+<p><strong>The problem.</strong> Your number 8 seems to be everywhere. Is the team failing because it cannot get places in time, or because one player has more work than he can handle? Those two problems look identical from the touchline and need completely different fixes.</p>
+
+<p><strong>How to set it up.</strong></p>
+<ol>
+<li>Open <strong>The Lab</strong> (step 3). Toggle to <strong>⚽ Soccer</strong>, leave the sliders at their defaults.</li>
+<li>Read <strong>Peak utilisation</strong>: <strong>1.358</strong>. Anything above 1 means somebody is being asked for more than they can give.</li>
+<li>Read the sentence under it, not just the number: 8.6% of demand is lost to <em>capacity</em>, and raising every player's capacity by 20% would add 4.8 points of throughput. That second part is the test — if more capacity buys more output, capacity is the real limit.</li>
+<li>Drag <strong>Capacity per player</strong> down to about 6. Peak utilisation jumps to <strong>2.727</strong>, 37.4% of demand is lost to capacity, and 20% more capacity would now buy 7.2 points.</li>
+<li>Put capacity back to 12 and instead drop <strong>Time to arrive</strong> to 2 s. The loss changes character: now nobody can get there in time, which is an access problem, not a workload problem.</li>
+</ol>
+
+<p><strong>Now use the toggle.</strong> Press <strong>🏭 Factory</strong>. At factory defaults there is <em>no</em> bottleneck: peak utilisation 0.795, and only 1.2% of demand is short — all of it access-limited. Drag <strong>Capacity per operator</strong> down to about 4 and the bottleneck appears: peak utilisation 1.939, 44.2% lost to capacity, and 20% more capacity is worth 10.9 points. The label on the slider changed; the arithmetic did not.</p>
+
+<figure><img src="IMG:sf-lab-soccer.png" alt="The Lab showing a capacity bottleneck at peak utilisation 1.358" /><figcaption>The Lab: green is reached in time, dark is not. Peak utilisation 1.358 says at least one player is over capacity at this instant.</figcaption></figure>
+
+<p><strong>What it proves.</strong> A bottleneck is a relationship between demand and capacity, not a place on a map — and that is equally true of a midfield and a workstation.</p>
+
+<p><strong>What it cannot tell you.</strong> Capacity here is one number per agent; a real player's depends on fitness, the score and the minute. The model has no queues, so it cannot show you the work stacking up in front of the bottleneck — which is often the expensive part. And it cannot tell you who to substitute, because it models position, speed and capacity, not skill.</p>
+
+<h3>A · How much ground can we actually close in three seconds?</h3>
+
+<p><strong>The problem.</strong> High press or deep block: how much of the pitch can you genuinely shut down before the opponent plays? And what does “three seconds” even mean on a factory floor?</p>
+
+<p><strong>How to set it up.</strong></p>
+<ol>
+<li>Open <strong>Start Here</strong> (step 1). Toggle to <strong>⚽ Soccer</strong>; the defaults are 3 s at 6 m/s, a reach radius of 18.0 m.</li>
+<li>Read <strong>Pitch reached</strong>: 70% with 4-4-2, and the red ring marks the worst-served spot 45 m from the nearest player.</li>
+<li>Click <strong>4-3-3</strong> (79%), then <strong>5-3-2</strong> (69%), then <strong>Bunch them up</strong> (17%). Shape, not effort, is doing the work.</li>
+<li>Drag the yellow ball toward your own goal and switch to <strong>2 · Importance</strong>: the plain number stays 70% while “important spots reached” reads 75%, because the area around the ball and your goal now counts more.</li>
+<li>Double-click a player to send him off and watch the number fall. Ask which one costs you most — it is rarely the obvious one.</li>
+</ol>
+
+<p><strong>Now use the toggle.</strong> Press <strong>🏭 Factory</strong>. The formula is unchanged — <em>reach = speed × time</em> — but an operator walks at 1.4 m/s, so six seconds buys 8.4 m instead of 18. <strong>Floor reached</strong> is 42%, and the station table underneath reads <strong>NO</strong> for all six stations: every one is 9.7–10.1 m away from the nearest operator. Drag time to arrive to 15 s and coverage becomes 86%, with a 21 m radius. Nothing about the maths changed; only the constant did.</p>
+
+<figure><img src="IMG:sf-start-soccer.png" alt="Start Here on the pitch: 70 percent reached in three seconds" /><figcaption>The pitch: 6 m/s × 3 s = 18 m. 70% of the pitch reachable, worst spot 45 m away.</figcaption></figure>
+
+<figure><img src="IMG:sf-start-factory.png" alt="The same page on a factory floor: 42 percent reached in six seconds" /><figcaption>The floor: 1.4 m/s × 6 s = 8.4 m of walking around racks. 42% reached, and every station misses the deadline.</figcaption></figure>
+
+<p><strong>What it proves.</strong> Coverage is one formula plus a shape. That is why a pressing scheme and a warehouse layout can be argued about with the same words — and why changing the shape moves the number far more than shouting at players to run harder.</p>
+
+<p><strong>What it cannot tell you.</strong> This model's opponents drift toward the ball; they do not pass into the space you just vacated, which is what a good team would do. There is no offside, no ball travel time and no second ball, and pressing traps are all about passes. The worst-served spot is a distance, not a danger — the Importance step only adds that crudely. On the floor side, walking distance is not the time to finish a task at a station, so service coverage is not the same as completed work.</p>
+
+<h2>What the toggle is really doing</h2>
+
+<p>It is not a skin. The same TypeScript engine changes three constants and one vocabulary: pitch 105 × 68 m and running at 6 m/s becomes a floor 60 × 40 m with racks and walking at 1.4 m/s, players become operators, the ball becomes the active job, a closed zone becomes a rack, your own goal becomes the critical station. Every measure on every page is computed by the same code, which is why the comparison is worth making. It also resets the sliders to that mode's defaults, so you cannot accidentally compare a sprint with a walk.</p>
+
+<h2>Under the hood, briefly</h2>
+
+<ul>
+<li><strong>No accounts, no downloads.</strong> Plain HTML/JS on the front, a small PHP + SQLite API behind it. Your saved experiments and notebook live in your own browser; nothing about you is stored.</li>
+<li><strong>The AI Coach explains, it never computes.</strong> Press 💬 Coach and it explains the numbers on the page — it is told never to invent data and to label results SIMULATED. Because the demo carries a real API key, the first use asks you one sum (<em>16 + 40 = ?</em>) and keeps that browser unlocked for 24 hours. That is not a login: it stops scripts from draining the key. Saving experiments works without it, and the Study Guide needs no AI at all.</li>
+<li><strong>Honesty is a feature.</strong> Every number carries a tag — SIMULATED, ASSUMED, CALCULATED, ESTIMATED, MEASURED — and the <em>Build Notes</em> page lists what the project does not claim.</li>
+<li><strong>It works on a phone</strong>, one-handed, on a pitch, with no signal needed once loaded.</li>
+</ul>
+
+<figure><img src="IMG:sf-coach-gate.png" alt="The Coach panel asking one arithmetic question before using the live AI" /><figcaption>One sum, once per browser, for 24 hours. Not a login — just a door with a human-sized handle.</figcaption></figure>
+
+<h2>Tools and approach</h2>
+
+<ul>
+<li><strong>MODEL</strong> — a pure TypeScript simulation engine: spatial coverage on a grid, capacity and utilisation, disturbance and recovery, Monte Carlo repeats, simulated annealing for layout optimisation, plus a Metrica-format tracking parser that estimates real speed limits from CSV data.</li>
+<li><strong>TOOLS</strong> — Vite + React + Tailwind for the front end; PHP 8 + SQLite for the experiment log and the Coach; DeepSeek <em>deepseek-flash</em> behind a one-sum gate for the explanations; Cloudflare and Coolify for hosting.</li>
+<li><strong>BUILT WITH</strong> — 49 engine verification cases, 13 API tests, 47 real-browser checks over CDP (every page, the toggle in both modes, the worked examples, and the full gate: locked → wrong sum refused → right sum → live answer). Screenshots for this page were captured by a script, not by hand.</li>
+<li><strong>NOTE</strong> — every result is SIMULATED under ASSUMED parameters. This is a teaching model, not a measurement of your team or any real plant. The soccer-to-factory link is shared mathematics, not an identity.</li>
+</ul>
+
+<h2>Review</h2>
+
+<p><strong>THE GOOD</strong></p>
+<ul>
+<li>The toggle earns its place. It is not decoration: the formations page really does compare five shapes on a pitch and three layouts on a floor with the same five measures.</li>
+<li>The four examples carry their own numbers and their own limits, so a student can check the claim instead of trusting it.</li>
+<li>The engine refuses to give one score. Where a layout wins everything it says so and tells you to change an assumption and look again.</li>
+<li>49 + 13 automated checks plus 47 browser checks, and the Coach gate is tested end to end rather than assumed to work.</li>
+</ul>
+
+<p><strong>THE BAD</strong></p>
+<ul>
+<li>It is a big app for a first visit: fifteen pages, and the advanced ones (Optimization, Monte Carlo) are only meaningful after the first five. The worked-examples page exists because the menu alone did not solve that.</li>
+<li>Facility mode has no queues and no order of operations. Those are the two things that make real industrial engineering hard, and they are deliberately out of scope here.</li>
+<li>Two players sent off only costs about six points of coverage in this model. A coach will tell you it feels worse than that, and the coach is right — the model has no opponent exploiting the gap.</li>
+<li>Numbers are only comparable within a mode. A missed ball and a late shipment are not the same unit.</li>
+</ul>
+
+<p><strong>TO IMPROVE</strong></p>
+<ul>
+<li>Add a queue in facility mode so the bottleneck page can show work stacking up, not just utilisation above 1.</li>
+<li>Give the opponent a policy that attacks the space you leave, so pressing traps can be modelled instead of only described.</li>
+<li>Let a student save a whole example as a shareable link (seed, mode and sliders in the URL) so a class can compare the same run.</li>
+</ul>
+
+<h2>What we learned</h2>
+
+<ul>
+<li><strong>The analogy is only useful where it is exact.</strong> Coverage, utilisation and recovery transfer cleanly because they are the same equations. Opponents, queues and safety rules do not transfer, and the app says so on every page that leans on the analogy.</li>
+<li><strong>A number without its limits is a sales pitch.</strong> The most valuable part of each example turned out to be the “what it cannot tell you” list, not the results table.</li>
+<li><strong>Order matters for teaching.</strong> The app's own menu teaches reach first because that is the founding idea — but a player learns a team sheet before a pressing block. Reordering the examples D → A (formation → red card → overload → pressing) made the whole thing easier to walk into than the app's own sequence.</li>
+<li><strong>A public demo with a paid API needs a door, not a login.</strong> One sum once per browser costs a visitor four seconds and keeps the key from being scripted, without storing anything about them.</li>
+</ul>
+
+<p><strong>Open Soccer Factory</strong> — start with the Four Worked Examples, then press the toggle.</p>

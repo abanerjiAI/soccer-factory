@@ -1,0 +1,34 @@
+{
+  "name": "soccer-factory",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Soccer Factory: soccer as a lab for Industrial Engineering. One engine runs a pitch and a factory floor. Static front end + PHP/SQLite API with a one-sum gate in front of the live AI Coach.",
+  "scripts": {
+    "dev": "node tools/vite.mjs",
+    "build": "node tools/vite.mjs build",
+    "preview": "node tools/vite.mjs preview",
+    "typecheck": "tsc --noEmit",
+    "test:engine": "tsc -p tsconfig.test.json && node tools/mark-cjs.mjs && node --test .build-test/tests/engine.test.js",
+    "test:api": "node tools/run-api-tests.mjs",
+    "test": "npm run typecheck && npm run test:engine && npm run test:api",
+    "serve": "node tools/serve.mjs",
+    "package": "node tools/package.mjs"
+  },
+  "dependencies": {
+    "marked": "^16.0.0",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "22.19.15",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "^6.1.2",
+    "jsdom": "^30.1.3",
+    "tailwindcss": "^4.1.17",
+    "typescript": "5.9.3",
+    "vite": "^8.3.4"
+  }
+}

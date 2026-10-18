@@ -1,0 +1,5 @@
+# Apache: route everything through index.php, never list this folder, never serve config or db files.
+Options -Indexes
+<FilesMatch "^(config(\.sample)?\.php|.*\.sqlite|.*\.sqlite-(wal|shm))$">
+  Require all denied
+</FilesMatch>

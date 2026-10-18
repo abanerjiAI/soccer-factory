@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["esnext", "dom"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": ".build-test",
+    "rootDir": ".",
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": { "@/*": ["./web/*"] },
+    "types": ["node"]
+  },
+  "include": ["tests/**/*.ts", "web/engine/**/*.ts", "web/content/**/*.ts"]
+}

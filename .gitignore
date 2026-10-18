@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.build-test/
+.build-ui/
+.local-data/
+api/config.php
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+shots/
+shots-lead/
+*.log
+.DS_Store

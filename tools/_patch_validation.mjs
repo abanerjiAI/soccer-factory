@@ -1,0 +1,14 @@
+import fs from "node:fs";
+const vp = "web/engine/validation.ts";
+let s = fs.readFileSync(vp, "utf8");
+const cases = fs.readFileSync("tools/_new_cases.txt", "utf8");
+const imp = 'import { applyH, invertH, solveHomography, validateCvPipeline } from "./cv";';
+if (!s.includes(imp)) throw new Error("import anchor missing");
+if (s.includes("defaultAgents")) throw new Error("already patched");
+s = s.replace(imp, imp + '\nimport { computeIntro, defaultAgents, flowDistance, gridDistances, introGridFor, blockedMask } from "./intro";\nimport { parseMetricaCsv, speedProfile, suggestParams, syntheticTracking, toMetricaCsv } from "./tracking";');
+const marker = "\n  for (let i = 0; i < tests.length; i++) {\n    const [id, group, description, expected, fn] = tests[i];";
+if (!s.includes(marker)) throw new Error("loop anchor missing");
+s = s.replace(marker, cases + marker);
+fs.writeFileSync(vp, s);
+fs.unlinkSync("tools/_new_cases.txt");
+console.log("patched validation.ts");
