@@ -8,7 +8,7 @@
 
 <p>Here is the idea in one sentence: a football team and a factory floor are both <em>space with moving agents, jobs arriving, and limits on how fast things get done</em>. If you can work out how much of the pitch your midfield can shut down in three seconds, you already have the maths for how much of a warehouse six operators can serve in thirty. One engine in the app runs both, and a single <strong>⚽ / 🏭 toggle</strong> at the top of every page switches between them.</p>
 
-<figure><img src="IMG:sf-examples.png" alt="The Four Worked Examples page inside Soccer Factory" /><figcaption>The guided page. Four examples, ordered the way a player learns the ideas, each one run on the pitch and then on a factory floor.</figcaption></figure>
+<figure><img src="IMG:soccer-factory-start-soccer.png" alt="Start Here on the pitch: 70 percent of the pitch reachable in three seconds" /><figcaption>Start Here. 6 m/s × 3 s = 18 m of reach. 70% of the pitch is covered, and the red ring shows the spot that is hardest to reach — 45 m from the nearest player.</figcaption></figure>
 
 <h2>Try it in sixty seconds</h2>
 
@@ -23,6 +23,8 @@
 <h2>Four worked examples</h2>
 
 <p>These are in the order a player learns them — the simplest soccer idea first, the most advanced last. Each one tells you the problem, how to set it up, what to do with the toggle, and then the part most demos skip: <strong>what the model cannot tell you</strong>.</p>
+
+<figure><img src="IMG:soccer-factory-examples.png" alt="The Four Worked Examples page inside Soccer Factory" /><figcaption>The guided page in the app: four examples, each with the problem, the setup steps, the toggle comparison, the numbers to expect, and the limits.</figcaption></figure>
 
 <h3>D · A team sheet is a layout drawing</h3>
 
@@ -57,9 +59,9 @@
 
 <p>With operators evenly spread, the linear line wins everything — and the app warns you not to stop there. Change <strong>Operators start as</strong> to <em>Depot-based</em> and the wins split: linear still moves product least and covers most, but the scattered layout needs the least capacity (peak utilisation 0.91 against 1.42) and carries the most dead area (438 m²). There is no longer one winner, and saying “this one moves product less, that one keeps the operators less busy” <em>is</em> the engineering answer.</p>
 
-<figure><img src="IMG:sf-formations-soccer.png" alt="Five formations compared on the same pitch" /><figcaption>Five shapes, one engine, five measures. The green cells move when you change which column you care about.</figcaption></figure>
+<figure><img src="IMG:soccer-factory-formations-soccer.png" alt="Five formations compared on the same pitch" /><figcaption>Five shapes, one engine, five measures. The green cells move when you change which column you care about.</figcaption></figure>
 
-<figure><img src="IMG:sf-layouts-factory.png" alt="Three factory layouts compared with the same five measures" /><figcaption>Flip the toggle and the rows become three floor layouts — the same five columns, the same idea of competing measures.</figcaption></figure>
+<figure><img src="IMG:soccer-factory-layouts-factory.png" alt="Three factory layouts compared with the same five measures" /><figcaption>Flip the toggle and the rows become three floor layouts — the same five columns, the same idea of competing measures.</figcaption></figure>
 
 <p><strong>What it proves.</strong> A formation and a floor layout are the same decision wearing different kit: where you put your agents decides what gets covered and who gets overloaded.</p>
 
@@ -90,9 +92,9 @@
 
 <p>Two players out of ten costs you about six points of coverage. One operator out of six costs about thirteen. Same maths, different slack — the floor has less redundancy than the pitch, and the model shows it without being told.</p>
 
-<figure><img src="IMG:sf-whatif-redcard.png" alt="Red card results: coverage dips during the disturbance window and recovers" /><figcaption>Two sent off. The coverage curve dips inside the shaded disturbance window, then comes back.</figcaption></figure>
+<figure><img src="IMG:soccer-factory-whatif-redcard.png" alt="Red card results: coverage dips during the disturbance window and recovers" /><figcaption>Two sent off. The coverage curve dips inside the shaded disturbance window, then comes back.</figcaption></figure>
 
-<figure><img src="IMG:sf-whatif-breakdown.png" alt="Factory breakdown results with the same five-stage frame" /><figcaption>One operator absent on the same five-stage frame. Bigger dip, quicker recovery — that difference is the finding.</figcaption></figure>
+<figure><img src="IMG:soccer-factory-whatif-breakdown.png" alt="Factory breakdown results with the same five-stage frame" /><figcaption>One operator absent on the same five-stage frame. Bigger dip, quicker recovery — that difference is the finding.</figcaption></figure>
 
 <p><strong>What it proves.</strong> A sending-off and a breakdown are one idea in two costumes: remove capacity, watch the system dip, measure the size and the length of the dip.</p>
 
@@ -113,7 +115,7 @@
 
 <p><strong>Now use the toggle.</strong> Press <strong>🏭 Factory</strong>. At factory defaults there is <em>no</em> bottleneck: peak utilisation 0.795, and only 1.2% of demand is short — all of it access-limited. Drag <strong>Capacity per operator</strong> down to about 4 and the bottleneck appears: peak utilisation 1.939, 44.2% lost to capacity, and 20% more capacity is worth 10.9 points. The label on the slider changed; the arithmetic did not.</p>
 
-<figure><img src="IMG:sf-lab-soccer.png" alt="The Lab showing a capacity bottleneck at peak utilisation 1.358" /><figcaption>The Lab: green is reached in time, dark is not. Peak utilisation 1.358 says at least one player is over capacity at this instant.</figcaption></figure>
+<figure><img src="IMG:soccer-factory-lab-soccer.png" alt="The Lab showing a capacity bottleneck at peak utilisation 1.358" /><figcaption>The Lab: green is reached in time, dark is not. Peak utilisation 1.358 says at least one player is over capacity at this instant.</figcaption></figure>
 
 <p><strong>What it proves.</strong> A bottleneck is a relationship between demand and capacity, not a place on a map — and that is equally true of a midfield and a workstation.</p>
 
@@ -134,9 +136,7 @@
 
 <p><strong>Now use the toggle.</strong> Press <strong>🏭 Factory</strong>. The formula is unchanged — <em>reach = speed × time</em> — but an operator walks at 1.4 m/s, so six seconds buys 8.4 m instead of 18. <strong>Floor reached</strong> is 42%, and the station table underneath reads <strong>NO</strong> for all six stations: every one is 9.7–10.1 m away from the nearest operator. Drag time to arrive to 15 s and coverage becomes 86%, with a 21 m radius. Nothing about the maths changed; only the constant did.</p>
 
-<figure><img src="IMG:sf-start-soccer.png" alt="Start Here on the pitch: 70 percent reached in three seconds" /><figcaption>The pitch: 6 m/s × 3 s = 18 m. 70% of the pitch reachable, worst spot 45 m away.</figcaption></figure>
-
-<figure><img src="IMG:sf-start-factory.png" alt="The same page on a factory floor: 42 percent reached in six seconds" /><figcaption>The floor: 1.4 m/s × 6 s = 8.4 m of walking around racks. 42% reached, and every station misses the deadline.</figcaption></figure>
+<figure><img src="IMG:soccer-factory-start-factory.png" alt="The same page on a factory floor: 42 percent reached in six seconds" /><figcaption>Same page, toggle on 🏭 Factory: 1.4 m/s × 6 s = 8.4 m of walking around racks. 42% reached, and every station misses the deadline.</figcaption></figure>
 
 <p><strong>What it proves.</strong> Coverage is one formula plus a shape. That is why a pressing scheme and a warehouse layout can be argued about with the same words — and why changing the shape moves the number far more than shouting at players to run harder.</p>
 
@@ -155,7 +155,7 @@
 <li><strong>It works on a phone</strong>, one-handed, on a pitch, with no signal needed once loaded.</li>
 </ul>
 
-<figure><img src="IMG:sf-coach-gate.png" alt="The Coach panel asking one arithmetic question before using the live AI" /><figcaption>One sum, once per browser, for 24 hours. Not a login — just a door with a human-sized handle.</figcaption></figure>
+<figure><img src="IMG:soccer-factory-coach-gate.png" alt="The Coach panel asking one arithmetic question before using the live AI" /><figcaption>One sum, once per browser, for 24 hours. Not a login — just a door with a human-sized handle.</figcaption></figure>
 
 <h2>Tools and approach</h2>
 

@@ -1,0 +1,33 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          extensions: pdo_sqlite, sqlite3, curl, mbstring
+          coverage: none
+      - run: npm ci
+      - name: Typecheck, engine suite and API suite
+        run: npm test
+      - name: Production build
+        run: npm run package
+      - name: The build contains what the deploy needs
+        run: |
+          test -f dist/index.html
+          test -f dist/api/index.php
+          test -f dist/api/gate.php
+          test ! -f dist/api/config.php || (echo "config.php must never be in dist" && exit 1)
+          node -e "const m=require('./dist/MANIFEST.json'); if (m.files.length < 35) { console.error('too few files', m.files.length); process.exit(1); } console.log('manifest files:', m.files.length)"

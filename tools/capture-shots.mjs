@@ -38,9 +38,13 @@ const scrollBy = async (y) => { await ev(`window.scrollTo(0, ${y})`); await slee
 
 await send("Page.enable"); await send("Runtime.enable"); await send("Network.enable");
 await send("Network.setCacheDisabled", { cacheDisabled: true });
-await send("Emulation.setDeviceMetricsOverride", { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
+await send("Emulation.setDeviceMetricsOverride", { width: 1280, height: 820, deviceScaleFactor: 1, mobile: false });
 await send("Page.navigate", { url: base });
 await sleep(2200);
+// the post shows these at ~1178 px wide: no scrollbar, and the nav column stays put when a page is scrolled
+await ev(`(()=>{const s=document.createElement('style');
+  s.textContent='::-webkit-scrollbar{width:0;height:0} aside{position:sticky;top:0;height:100vh;overflow:hidden}';
+  document.head.appendChild(s); return true;})()`);
 
 // ---- 1. Start Here, soccer (defaults: 4-4-2, 3 s, 6 m/s)
 await go("/", 1600);

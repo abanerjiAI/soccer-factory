@@ -23,7 +23,10 @@ where possible:
 
 ```php
 <?php return [
-  'db_path' => '/var/lib/soccer-factory/lab.sqlite',  // outside the web root; folder writable by www-data
+  // Empty = <app>/data/lab.sqlite, denied by data/.htaccess (403 measured on the box).
+  // Do NOT use a host path such as /var/lib/... : only the docroot is mounted into the WordPress
+  // container, so any other path resolves inside the container and cannot be written.
+  'db_path' => '',
   'deepseek_api_key' => '...',                        // leave empty to run the Coach offline
   'deepseek_base_url' => 'https://api.deepseek.com',
   'deepseek_model' => 'deepseek-flash',
@@ -51,13 +54,18 @@ Coach runs on its offline template.
 ## Verify through the edge (every asset, not just /)
 
 ```bash
-for u in / /index.html /examples /lab /api/index.php?r=health; do
+# the app is a hash router: /#/lab, not /lab
+for u in / /index.html "/#/examples" "/#/lab" "api/index.php?r=health"; do
   curl -s -o /dev/null -w "$u %{http_code}\n" "https://nashvilleaiclub.com/demo/abanerji/soccer-factory$u"
 done
+A=$(curl -s "https://nashvilleaiclub.com/demo/abanerji/soccer-factory/" | grep -o 'assets/index-[^"]*\.js' | head -1)
+curl -s -o /dev/null -w "$A %{http_code}\n" "https://nashvilleaiclub.com/demo/abanerji/soccer-factory/$A"
 curl -s "https://nashvilleaiclub.com/demo/abanerji/soccer-factory/api/index.php?r=health"
 # -> {"ok":true,"php":"8.x","sqlite":"3.x","records":0,"ai":"deepseek","coachGate":true,...}
 curl -s "https://nashvilleaiclub.com/demo/abanerji/soccer-factory/api/index.php?r=gate/challenge"
 # -> {"required":true,"a":..,"b":..,"exp":..,"sig":"..","seconds":300}
+curl -s -o /dev/null -w "config.php must be 403: %{http_code}\n" "https://nashvilleaiclub.com/demo/abanerji/soccer-factory/api/config.php"
+curl -s -o /dev/null -w "data/ must be 403: %{http_code}\n" "https://nashvilleaiclub.com/demo/abanerji/soccer-factory/data/"
 ```
 
 Then walk `tools/browser-check.mjs` against the live URL (needs Chrome with
